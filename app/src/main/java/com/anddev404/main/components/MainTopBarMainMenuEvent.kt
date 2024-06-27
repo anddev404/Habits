@@ -5,4 +5,6 @@ sealed class MainTopBarMainMenuEvent {
     data object OnSettingsClick : MainTopBarMainMenuEvent()
     data object OnSupportClick : MainTopBarMainMenuEvent()
     data object OnAboutClick : MainTopBarMainMenuEvent()
+    data object OnCloseClick : MainTopBarMainMenuEvent()
+
 }
