@@ -2,6 +2,7 @@ package com.anddev404.main.components
 
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Checkbox
@@ -30,103 +31,96 @@ fun MainTopBarMainMenu(
     textColor: Color = MainColor,
     backgroundColor: Color = Color.White,
     font: FontFamily = FontFamily(Font(R.font.roboto_medium)),
-    isExpanded: Boolean = false,
     isNightMode: Boolean = false,
     clickEvent: (event: MainTopBarMainMenuEvent) -> Unit = {}
 ) {
-    var expanded by remember { mutableStateOf(isExpanded) }
-    DropdownMenu(
-        expanded = expanded,
-        modifier = Modifier
-            .background(backgroundColor)
-            .then(modifier),
-        onDismissRequest = { expanded = false }) {
+    Box {
+        DropdownMenu(expanded = true,
+            modifier = Modifier
+                .background(backgroundColor)
+                .then(modifier),
+            onDismissRequest = {
+                clickEvent(MainTopBarMainMenuEvent.OnCloseClick)
+            }) {
 
-        var isCheckedNightMode by remember { mutableStateOf(isNightMode) }
+            var isCheckedNightMode by remember { mutableStateOf(isNightMode) }
 
-        DropdownMenuItem(text = {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            DropdownMenuItem(text = {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = stringResource(id = R.string.night_mode),
+                        modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
+                        color = textColor,
+                        fontFamily = font,
+                    )
+                    Checkbox(
+                        checked = isCheckedNightMode, onCheckedChange = {
+                            isCheckedNightMode = !isCheckedNightMode
+                            clickEvent(
+                                MainTopBarMainMenuEvent.OnToggleNightModeClick(
+                                    isCheckedNightMode
+                                )
+                            )
+                        }, modifier = Modifier.padding(
+                                start = LocalSpacing.current.spaceMediumSmall,
+                                end = LocalSpacing.current.spaceMediumSmall
+                            )
+                    )
+                }
+            }, onClick = {
+                isCheckedNightMode = !isCheckedNightMode
+                clickEvent(MainTopBarMainMenuEvent.OnToggleNightModeClick(isCheckedNightMode))
+            })
+
+            DropdownMenuItem(text = {
                 Text(
-                    text = stringResource(id = R.string.night_mode),
-                    modifier = Modifier
-                        .padding(LocalSpacing.current.spaceMediumSmall),
+                    text = stringResource(id = R.string.settings),
+                    modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
                     color = textColor,
                     fontFamily = font,
+
+                    )
+            }, onClick = {
+                clickEvent(MainTopBarMainMenuEvent.OnSettingsClick)
+            })
+
+            DropdownMenuItem(text = {
+                Text(
+                    text = stringResource(id = R.string.support),
+                    modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
+                    color = textColor,
+                    fontFamily = font
                 )
-                Checkbox(
-                    checked = isCheckedNightMode,
-                    onCheckedChange = {
-                        isCheckedNightMode = !isCheckedNightMode
-                        clickEvent(MainTopBarMainMenuEvent.OnToggleNightModeClick(isCheckedNightMode))
-                        expanded = false
-                    },
-                    modifier = Modifier
-                        .padding(
-                            start = LocalSpacing.current.spaceMediumSmall,
-                            end = LocalSpacing.current.spaceMediumSmall
-                        )
+            }, onClick = {
+                clickEvent(MainTopBarMainMenuEvent.OnSupportClick)
+            })
+
+            DropdownMenuItem(text = {
+                Text(
+                    text = stringResource(id = R.string.about),
+                    modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
+                    color = textColor,
+                    fontFamily = font
                 )
-            }
-        }, onClick = {
-            isCheckedNightMode = !isCheckedNightMode
-            clickEvent(MainTopBarMainMenuEvent.OnToggleNightModeClick(isCheckedNightMode))
-            expanded = false
-        })
-
-        DropdownMenuItem(text = {
-            Text(
-                text = stringResource(id = R.string.settings),
-                modifier = Modifier
-                    .padding(LocalSpacing.current.spaceMediumSmall),
-                color = textColor,
-                fontFamily = font,
-
-                )
-        }, onClick = {
-            clickEvent(MainTopBarMainMenuEvent.OnSettingsClick)
-            expanded = false
-        })
-
-        DropdownMenuItem(text = {
-            Text(
-                text = stringResource(id = R.string.support),
-                modifier = Modifier
-                    .padding(LocalSpacing.current.spaceMediumSmall),
-                color = textColor,
-                fontFamily = font
-            )
-        }, onClick = {
-            clickEvent(MainTopBarMainMenuEvent.OnSupportClick)
-            expanded = false
-        })
-
-        DropdownMenuItem(text = {
-            Text(
-                text = stringResource(id = R.string.about),
-                modifier = Modifier
-                    .padding(LocalSpacing.current.spaceMediumSmall),
-                color = textColor,
-                fontFamily = font
-            )
-        }, onClick = {
-            clickEvent(MainTopBarMainMenuEvent.OnAboutClick)
-            expanded = false
-        })
+            }, onClick = {
+                clickEvent(MainTopBarMainMenuEvent.OnAboutClick)
+            })
+        }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun MainTopBarMainMenuPreview() {
-    MainTopBarMainMenu(isExpanded = true) {
+private fun MainTopBarMainMenuPreview() {
+    MainTopBarMainMenu {
         val tag = "MainTopBar"
         when (it) {
-            MainTopBarMainMenuEvent.OnAboutClick -> Log.d(tag, "clicked about");
-            MainTopBarMainMenuEvent.OnSettingsClick -> Log.d(tag, "clicked settings");
-            MainTopBarMainMenuEvent.OnSupportClick -> Log.d(tag, "clicked support");
+            MainTopBarMainMenuEvent.OnAboutClick -> Log.d(tag, "clicked about")
+            MainTopBarMainMenuEvent.OnSettingsClick -> Log.d(tag, "clicked settings")
+            MainTopBarMainMenuEvent.OnSupportClick -> Log.d(tag, "clicked support")
+            MainTopBarMainMenuEvent.OnCloseClick -> Log.d(tag, "close menu")
             is MainTopBarMainMenuEvent.OnToggleNightModeClick -> Log.d(
-                tag,
-                "clicked night mode ${it.darkMode}"
+                tag, "clicked night mode ${it.darkMode}"
             );
         }
     }
