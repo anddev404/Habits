@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.anddev404.main.components.MainTopBar
 import com.anddev404.ui.theme.HabbitsTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,8 @@ class MainActivity : ComponentActivity() {
             window.navigationBarColor = getColor(R.color.navigation_bar_color)
 
             HabbitsTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize(),
+                    topBar = { MainTopBar() }) { innerPadding ->
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
