@@ -15,6 +15,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -69,10 +73,23 @@ fun MainTopBar() {
 
             Spacer(modifier = Modifier.width(LocalSpacing.current.spaceMedium))
 
+            var expandedMainMenu by remember { mutableStateOf(false) }
+            if (expandedMainMenu) {
+                MainTopBarMainMenu {
+                    when (it) {
+                        MainTopBarMainMenuEvent.OnAboutClick -> TODO()
+                        MainTopBarMainMenuEvent.OnSettingsClick -> TODO()
+                        MainTopBarMainMenuEvent.OnSupportClick -> TODO()
+                        MainTopBarMainMenuEvent.OnCloseClick -> expandedMainMenu = false
+                        is MainTopBarMainMenuEvent.OnToggleNightModeClick -> TODO()
+                    }
+                }
+            }
+
             Icon(imageVector = Icons.Default.MoreVert,
                 "",
                 tint = Color.White,
-                modifier = Modifier.clickable { })
+                modifier = Modifier.clickable { expandedMainMenu = !expandedMainMenu })
 
             Spacer(modifier = Modifier.width(LocalSpacing.current.spaceExtraSmall))
 
