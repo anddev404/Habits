@@ -57,11 +57,19 @@ fun MainTopBar() {
             verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxHeight()
         ) {
 
+            var showDialog by remember { mutableStateOf(false) }
+            if (showDialog) {
+                MainTopBarDialog(
+                    firstCardSelected = {},
+                    secondCardSelected = {},
+                    onDismiss = { showDialog = false })
+            }
+
             Icon(
                 imageVector = Icons.Default.Add,
                 "",
                 tint = Color.White,
-                modifier = Modifier.clickable {})
+                modifier = Modifier.clickable { showDialog = true })
 
             Spacer(modifier = Modifier.width(LocalSpacing.current.spaceMedium))
 
