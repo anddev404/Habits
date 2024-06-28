@@ -15,4 +15,9 @@
     <string name="measurable">Measurable</string>
     <string name="measurable_description">For example: How many miles did you drive today? How many pages did you read?</string>
 
+    <string name="manually">Manually</string>
+    <string name="by_name">By name</string>
+    <string name="by_color">By color</string>
+    <string name="by_result">By result</string>
+    <string name="by_status">By status</string>
 </resources>
