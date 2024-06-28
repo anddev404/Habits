@@ -53,7 +53,7 @@ fun MainTopBarFilterMenu(
             }) {
 
             var isCheckedHideArchived by remember { mutableStateOf(isHideArchived) }
-            
+
             Column(modifier = Modifier.width(IntrinsicSize.Max)) {
                 DropdownMenuItem(text = {
                     Row(
