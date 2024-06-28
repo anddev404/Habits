@@ -73,12 +73,31 @@ fun MainTopBar() {
 
             Spacer(modifier = Modifier.width(LocalSpacing.current.spaceMedium))
 
+            var expandedSortMenu by remember { mutableStateOf(false) }
+            if (expandedSortMenu) {
+                MainTopBarSortMenu {
+                    when (it) {
+                        MainTopBarSortMenuEvent.OnByColorClick -> TODO()
+                        MainTopBarSortMenuEvent.OnByNameClick -> TODO()
+                        MainTopBarSortMenuEvent.OnByResultClick -> TODO()
+                        MainTopBarSortMenuEvent.OnByStatusClick -> TODO()
+                        MainTopBarSortMenuEvent.OnDismissClick -> expandedSortMenu = false
+                        MainTopBarSortMenuEvent.OnManuallyClick -> TODO()
+                    }
+                }
+            }
+
             var expandedFilterMenu by remember { mutableStateOf(false) }
             if (expandedFilterMenu) {
                 MainTopBarFilterMenu {
                     when (it) {
                         MainTopBarFilterMenuEvent.OnExitClick -> expandedFilterMenu = false
-                        MainTopBarFilterMenuEvent.OnSortClick -> TODO()
+                        MainTopBarFilterMenuEvent.OnSortClick -> {
+                            expandedFilterMenu = false
+                            expandedSortMenu = true
+
+                        }
+
                         is MainTopBarFilterMenuEvent.OnToggleHideArchived -> TODO()
                         is MainTopBarFilterMenuEvent.OnToggleHideCompleted -> TODO()
                     }
