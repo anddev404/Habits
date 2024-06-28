@@ -15,6 +15,7 @@
     <string name="measurable">Measurable</string>
     <string name="measurable_description">For example: How many miles did you drive today? How many pages did you read?</string>
 
+    <string name="sort_with_colon">Sort:</string>
     <string name="manually">Manually</string>
     <string name="by_name">By name</string>
     <string name="by_color">By color</string>
