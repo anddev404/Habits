@@ -51,6 +51,7 @@ fun MainTopBarSortMenu(
 
             DropdownMenuItem(text = {
                 Text(
+                    modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
                     text = stringResource(id = R.string.manually),
                     color = textColor,
                     fontFamily = font
@@ -61,6 +62,7 @@ fun MainTopBarSortMenu(
 
             DropdownMenuItem(text = {
                 Text(
+                    modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
                     text = stringResource(id = R.string.by_name),
                     color = textColor,
                     fontFamily = font,
@@ -71,6 +73,7 @@ fun MainTopBarSortMenu(
 
             DropdownMenuItem(text = {
                 Text(
+                    modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
                     text = stringResource(id = R.string.by_color),
                     color = textColor,
                     fontFamily = font,
@@ -81,6 +84,7 @@ fun MainTopBarSortMenu(
 
             DropdownMenuItem(text = {
                 Text(
+                    modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
                     text = stringResource(id = R.string.by_result),
                     color = textColor,
                     fontFamily = font,
@@ -91,6 +95,7 @@ fun MainTopBarSortMenu(
 
             DropdownMenuItem(text = {
                 Text(
+                    modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
                     text = stringResource(id = R.string.by_status),
                     color = textColor,
                     fontFamily = font,
