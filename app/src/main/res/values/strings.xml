@@ -10,4 +10,9 @@
     <string name="hide_completed">Hide completed</string>
     <string name="sort">Sort</string>
 
+    <string name="yes_or_no">Yes or No</string>
+    <string name="yes_or_no_description">For example: Did you wake up early today? Did you exercise? Did you play chess?</string>
+    <string name="measurable">Measurable</string>
+    <string name="measurable_description">For example: How many miles did you drive today? How many pages did you read?</string>
+
 </resources>
