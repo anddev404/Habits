@@ -134,7 +134,7 @@ fun MainTopBarFilterMenu(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = stringResource(id = R.string.hide_completed),
+                            text = stringResource(id = R.string.sort),
                             modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
                             color = textColor,
                             fontFamily = font,
