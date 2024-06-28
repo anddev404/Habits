@@ -65,11 +65,23 @@ fun MainTopBar() {
 
             Spacer(modifier = Modifier.width(LocalSpacing.current.spaceMedium))
 
+            var expandedFilterMenu by remember { mutableStateOf(false) }
+            if (expandedFilterMenu) {
+                MainTopBarFilterMenu {
+                    when (it) {
+                        MainTopBarFilterMenuEvent.OnExitClick -> expandedFilterMenu = false
+                        MainTopBarFilterMenuEvent.OnSortClick -> TODO()
+                        is MainTopBarFilterMenuEvent.OnToggleHideArchived -> TODO()
+                        is MainTopBarFilterMenuEvent.OnToggleHideCompleted -> TODO()
+                    }
+                }
+            }
+
             Icon(
                 painter = painterResource(id = R.drawable.ic_filter_list),
                 "",
                 tint = Color.White,
-                modifier = Modifier.clickable {})
+                modifier = Modifier.clickable { expandedFilterMenu = !expandedFilterMenu })
 
             Spacer(modifier = Modifier.width(LocalSpacing.current.spaceMedium))
 
