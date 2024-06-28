@@ -72,10 +72,9 @@ fun MainTopBarDialog(
                         Text(
                             text = description1,
                             color = textColor,
-                            modifier = Modifier
-                                .wrapContentSize(Alignment.Center),
+                            modifier = Modifier.wrapContentSize(Alignment.Center),
                             fontSize = MaterialTheme.typography.bodyMedium.fontSize,
-                            textAlign = TextAlign.Justify,
+                            textAlign = TextAlign.Start,
                         )
                     }
 
@@ -104,10 +103,9 @@ fun MainTopBarDialog(
                         Text(
                             text = description2,
                             color = textColor,
-                            modifier = Modifier
-                                .wrapContentSize(Alignment.Center),
+                            modifier = Modifier.wrapContentSize(Alignment.Center),
                             fontSize = MaterialTheme.typography.bodyMedium.fontSize,
-                            textAlign = TextAlign.Justify,
+                            textAlign = TextAlign.Start,
                         )
                     }
 
@@ -121,8 +119,7 @@ fun MainTopBarDialog(
 @Composable
 private fun MainTopBarDialogPreview() {
     val tag = "MainTopBar"
-    MainTopBarDialog(
-        firstCardSelected = { Log.d(tag, "first card selected") },
+    MainTopBarDialog(firstCardSelected = { Log.d(tag, "first card selected") },
         secondCardSelected = { Log.d(tag, "second card selected") }) {
         Log.d(tag, "dismiss")
     }
