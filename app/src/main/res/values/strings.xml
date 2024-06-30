@@ -21,4 +21,6 @@
     <string name="by_color">By color</string>
     <string name="by_result">By result</string>
     <string name="by_status">By status</string>
+
+    <string name="save">SAVE</string>
 </resources>
