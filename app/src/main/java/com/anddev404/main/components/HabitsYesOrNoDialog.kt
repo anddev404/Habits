@@ -98,10 +98,10 @@ fun HabitsYesOrNoDialog(
 fun HabitsYesOrNoDialogPreview() {
     val tag = "HabitsView"
     HabitsYesOrNoDialog(onCheckedSelected = {
-        Log.d(tag, "yes");
+        Log.d(tag, "yes")
     }, onUnCheckedSelected = {
-        Log.d(tag, "no");
+        Log.d(tag, "no")
     }) {
-        Log.d(tag, "dismiss");
+        Log.d(tag, "dismiss")
     }
 }
