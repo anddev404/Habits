@@ -95,7 +95,7 @@ fun HabitsYesOrNoDialog(
 
 @Preview(showBackground = true)
 @Composable
-fun HabitsYesOrNoDialogPreview() {
+private fun HabitsYesOrNoDialogPreview() {
     val tag = "HabitsView"
     HabitsYesOrNoDialog(onCheckedSelected = {
         Log.d(tag, "yes")
