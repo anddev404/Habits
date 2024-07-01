@@ -127,7 +127,7 @@ private fun isCorrect(textFieldValue: TextFieldValue): Boolean {
 
 @Preview(showBackground = true)
 @Composable
-fun HabitsEnterValueDialogPreview() {
+private fun HabitsEnterValueDialogPreview() {
     val tag = "HabitsView"
     HabitsEnterValueDialog(value = 123, onValue = {
         Log.d(tag, "value = $it")
