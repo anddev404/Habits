@@ -72,7 +72,6 @@ private fun HabitsValueItemPreview1() {
 @Preview(showBackground = true)
 @Composable
 private fun HabitsValueItemPreview2() {
-//    Log.d(tag, "dismiss")
     val tag = "HabitsView"
     HabitsValueItem(unit = "km") {
         Log.d(tag, "clicked: $it")
