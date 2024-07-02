@@ -1,4 +1,4 @@
-package com.anddev404.main.components
+package com.anddev404.main.components.main_top_bar.events
 
 sealed class MainTopBarSortMenuEvent {
     data object OnManuallyClick : MainTopBarSortMenuEvent()

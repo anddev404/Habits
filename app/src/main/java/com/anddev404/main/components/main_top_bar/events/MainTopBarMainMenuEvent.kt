@@ -1,4 +1,4 @@
-package com.anddev404.main.components
+package com.anddev404.main.components.main_top_bar.events
 
 sealed class MainTopBarMainMenuEvent {
     data class OnToggleNightModeClick(val darkMode: Boolean) : MainTopBarMainMenuEvent()
