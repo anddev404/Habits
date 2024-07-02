@@ -21,13 +21,13 @@ import com.anddev404.ui.theme.LocalSpacing
 
 @Composable
 fun HabitsValueItem(
-    state: HabitsViewItemState.Value, onClick: (id: Int, value: Int) -> Unit = { _, _ -> }
+    state: HabitsViewItemState.Value, onClick: (HabitsViewItemState.Value) -> Unit = {}
 ) {
 
     Column(
         Modifier
             .size(LocalSpacing.current.habitItemSize)
-            .clickable { onClick(state.id, state.value) },
+            .clickable { onClick(state) },
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy((-4).dp, alignment = Alignment.CenterVertically)
     ) {
@@ -65,10 +65,9 @@ private fun HabitsValueItemPreview1() {
             value = 10,
             color = Color.Blue
         )
-    ) { id, value ->
-        Log.d(tag, "clicked: value=$value  id=$id")
+    ) {
+        Log.d(tag, "clicked: value=${it.value}  id=${it.id}")
     }
-
 }
 
 @Preview(showBackground = true)
@@ -80,8 +79,8 @@ private fun HabitsValueItemPreview2() {
             1,
             unit = "km"
         )
-    ) { id, value ->
-        Log.d(tag, "clicked: value=$value  id=$id")
+    ) {
+        Log.d(tag, "clicked: value=${it.value}  id=${it.id}")
     }
 
 }
