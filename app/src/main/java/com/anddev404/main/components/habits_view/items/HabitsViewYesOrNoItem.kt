@@ -19,12 +19,14 @@ import com.anddev404.ui.theme.LocalSpacing
 @Composable
 fun HabitsYesOrNoItem(
     state: HabitsViewItemState.YesOrNo,
-    onClick: (id: Int, isChecked: Boolean) -> Unit = { _, _ -> }
+    onClick: (HabitsViewItemState.YesOrNo) -> Unit = { }
 ) {
     if (state.isChecked) {
         IconButton(modifier = Modifier
             .size(LocalSpacing.current.habitItemSize),
-            onClick = { onClick(state.id, true) }
+            onClick = {
+                onClick(state)
+            }
         ) {
             Icon(
                 imageVector = Icons.Default.Check,
@@ -35,7 +37,9 @@ fun HabitsYesOrNoItem(
     } else {
         IconButton(modifier = Modifier
             .size(LocalSpacing.current.habitItemSize),
-            onClick = { onClick(state.id, false) }
+            onClick = {
+                onClick(state)
+            }
         ) {
             Icon(
                 imageVector = Icons.Default.Close,
@@ -56,8 +60,8 @@ private fun HabitsYesOrNoItemPreview1() {
             isChecked = true,
             color = Color.Blue,
         )
-    ) { id, isChecked ->
-        Log.d(tag, "clicked: $id  $isChecked")
+    ) {
+        Log.d(tag, "clicked: ${it.id}  ${it.isChecked}")
     }
 
 }
@@ -69,9 +73,10 @@ private fun HabitsYesOrNoItemPreview2() {
     HabitsYesOrNoItem(
         HabitsViewItemState.YesOrNo(
             2,
-            isChecked = false
+            isChecked = false,
+            color = Color.Green,
         )
-    ) { id, isChecked ->
-        Log.d(tag, "clicked: $id  $isChecked")
+    ) {
+        Log.d(tag, "clicked: ${it.id}  ${it.isChecked}")
     }
 }
