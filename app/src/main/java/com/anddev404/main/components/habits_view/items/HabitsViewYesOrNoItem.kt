@@ -1,4 +1,4 @@
-package com.anddev404.main.components
+package com.anddev404.main.components.habits_view.items
 
 import android.util.Log
 import androidx.compose.foundation.layout.size
@@ -18,15 +18,16 @@ import com.anddev404.ui.theme.LocalSpacing
 
 @Composable
 fun HabitsYesOrNoItem(
-    checkedColor: Color = InactiveDarkColor,
+    id: Int = 0,
     isChecked: Boolean = false,
-    onClick: (Boolean) -> Unit = {}
+    checkedColor: Color = InactiveDarkColor,
+    onClick: (id: Int, isChecked: Boolean) -> Unit = { _, _ -> }
 ) {
 
     if (isChecked) {
         IconButton(modifier = Modifier
             .size(LocalSpacing.current.habitItemSize),
-            onClick = { onClick(true) }
+            onClick = { onClick(id, true) }
         ) {
             Icon(
                 imageVector = Icons.Default.Check,
@@ -37,7 +38,7 @@ fun HabitsYesOrNoItem(
     } else {
         IconButton(modifier = Modifier
             .size(LocalSpacing.current.habitItemSize),
-            onClick = { onClick(false) }
+            onClick = { onClick(id, false) }
         ) {
             Icon(
                 imageVector = Icons.Default.Close,
@@ -53,8 +54,8 @@ fun HabitsYesOrNoItem(
 @Composable
 private fun HabitsYesOrNoItemPreview1() {
     val tag = "HabitsView"
-    HabitsYesOrNoItem(Color.Blue, true) {
-        Log.d(tag, "clicked: $it")
+    HabitsYesOrNoItem(1, checkedColor = Color.Blue, isChecked = true) { id, isChecked ->
+        Log.d(tag, "clicked: $id  $isChecked")
     }
 
 }
@@ -62,10 +63,8 @@ private fun HabitsYesOrNoItemPreview1() {
 @Preview(showBackground = true)
 @Composable
 private fun HabitsYesOrNoItemPreview2() {
-//    Log.d(tag, "dismiss")
     val tag = "HabitsView"
-    HabitsYesOrNoItem() {
-        Log.d(tag, "clicked: $it")
+    HabitsYesOrNoItem(2) { id, isChecked ->
+        Log.d(tag, "clicked: $id  $isChecked")
     }
-
 }
