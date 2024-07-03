@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.anddev404.main.components.MainTopBar
+import com.anddev404.main.components.main_top_bar.MainTopBar
 import com.anddev404.ui.theme.HabbitsTheme
 
 class MainActivity : ComponentActivity() {
