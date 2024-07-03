@@ -1,4 +1,4 @@
-package com.anddev404.main.components.main_top_bar
+package com.anddev404.habits.components.main_top_bar
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -29,13 +29,13 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.anddev404.R
-import com.anddev404.main.components.main_top_bar.dialogs.MainTopBarDialog
-import com.anddev404.main.components.main_top_bar.events.MainTopBarFilterMenuEvent
-import com.anddev404.main.components.main_top_bar.events.MainTopBarMainMenuEvent
-import com.anddev404.main.components.main_top_bar.events.MainTopBarSortMenuEvent
-import com.anddev404.main.components.main_top_bar.menus.MainTopBarFilterMenu
-import com.anddev404.main.components.main_top_bar.menus.MainTopBarMainMenu
-import com.anddev404.main.components.main_top_bar.menus.MainTopBarSortMenu
+import com.anddev404.habits.components.main_top_bar.dialogs.MainTopBarDialog
+import com.anddev404.habits.components.main_top_bar.events.MainTopBarFilterMenuEvent
+import com.anddev404.habits.components.main_top_bar.events.MainTopBarMainMenuEvent
+import com.anddev404.habits.components.main_top_bar.events.MainTopBarSortMenuEvent
+import com.anddev404.habits.components.main_top_bar.menus.MainTopBarFilterMenu
+import com.anddev404.habits.components.main_top_bar.menus.MainTopBarMainMenu
+import com.anddev404.habits.components.main_top_bar.menus.MainTopBarSortMenu
 import com.anddev404.ui.theme.LocalSpacing
 import com.anddev404.ui.theme.MainColor
 

@@ -1,4 +1,4 @@
-package com.anddev404.main.components.habits_view.states
+package com.anddev404.habits.components.habits_view.states
 
 import androidx.compose.ui.graphics.Color
 import com.anddev404.ui.theme.InactiveDarkColor

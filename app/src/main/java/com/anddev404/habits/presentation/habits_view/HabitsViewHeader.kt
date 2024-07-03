@@ -1,4 +1,4 @@
-package com.anddev404.main.components.habits_view
+package com.anddev404.habits.components.habits_view
 
 import android.content.res.Configuration
 import android.util.Log
@@ -14,8 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.anddev404.main.components.habits_view.items.HabitsViewHeaderItem
-import com.anddev404.main.components.habits_view.states.HabitsViewHeaderItemState
+import com.anddev404.habits.components.habits_view.items.HabitsViewHeaderItem
+import com.anddev404.habits.components.habits_view.states.HabitsViewHeaderItemState
 
 @Composable
 fun HabitsViewHeader(

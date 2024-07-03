@@ -1,4 +1,4 @@
-package com.anddev404.main.components.main_top_bar.events
+package com.anddev404.habits.components.main_top_bar.events
 
 sealed class MainTopBarFilterMenuEvent {
     data class OnToggleHideArchived(val hideArchived: Boolean) : MainTopBarFilterMenuEvent()

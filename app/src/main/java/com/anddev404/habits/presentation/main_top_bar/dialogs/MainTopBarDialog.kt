@@ -1,4 +1,4 @@
-package com.anddev404.main.components.main_top_bar.dialogs
+package com.anddev404.habits.components.main_top_bar.dialogs
 
 import android.util.Log
 import androidx.compose.foundation.clickable

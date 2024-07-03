@@ -1,4 +1,4 @@
-package com.anddev404.main.components.habits_view.items
+package com.anddev404.habits.components.habits_view.items
 
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -15,8 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.anddev404.main.components.habits_view.states.HabitsViewItemState
-import com.anddev404.ui.theme.InactiveLightColor
+import com.anddev404.habits.components.habits_view.states.HabitsViewItemState
 import com.anddev404.ui.theme.LocalSpacing
 
 @Composable
