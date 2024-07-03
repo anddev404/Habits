@@ -25,13 +25,14 @@ import kotlin.random.Random
 
 @Composable
 fun HabitsView(
+    modifier: Modifier = Modifier,
     headerState: List<HabitsViewHeaderItemState> = listOf(),
     habitsStates: List<HabitsViewRowState> = listOf(),
     events: (HabitsViewRowEvent) -> Unit = {}
 ) {
 
     Column(
-        Modifier
+        modifier
             .background(BackgroundColor)
             .padding(2.dp)
     ) {
@@ -61,8 +62,8 @@ fun HabitsView(
 @Composable
 private fun HabitsViewPreview() {
     HabitsView(
-        getHeaderList(),
-        getNewRowState()
+        headerState = getHeaderList(),
+        habitsStates = getNewRowState()
     ) {
         val tag = "HabitsView"
         when (it) {
