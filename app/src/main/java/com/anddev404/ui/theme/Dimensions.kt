@@ -16,9 +16,11 @@ data class Dimensions(
     val spaceExtraLarge: Dp = 64.dp,
 
     val habitItemSize: Dp = 48.dp,
+    val habitItemSizeSmall: Dp = 40.dp,
 
+    val fontSizeMediumSmall: TextUnit = 12.sp,
     val fontSizeMedium: TextUnit = 16.sp,
-    val fontSizeMediumSmall: TextUnit = 12.sp
+    val fontSizeLarge: TextUnit = 20.sp,
 )
 
 val LocalSpacing = compositionLocalOf { Dimensions() }
