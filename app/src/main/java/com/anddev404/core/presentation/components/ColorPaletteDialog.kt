@@ -104,7 +104,7 @@ fun colors(): List<Color> {
         Color(0xFF00887A),
         Color(0xFF00ACC2),
         Color(0xFF039BE6),
-        Color(0xFF1976D3),
+        defaultColor,
         Color(0xFFD61B60),
         Color(0xFF8E24AA),
         Color(0xFF5D35B0),
@@ -115,3 +115,5 @@ fun colors(): List<Color> {
         Color(0xFF9E9E9E)
     )
 }
+
+val defaultColor = Color(0xFF1976D3)
