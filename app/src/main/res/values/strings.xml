@@ -23,4 +23,7 @@
     <string name="by_status">By status</string>
 
     <string name="save">SAVE</string>
+
+    <string name="change_color">Change color</string>
+
 </resources>
