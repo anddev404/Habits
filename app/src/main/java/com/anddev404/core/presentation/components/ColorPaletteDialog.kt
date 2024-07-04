@@ -83,7 +83,7 @@ fun ColorPaletteDialog(
 
 @Preview(showBackground = true)
 @Composable
-fun ColorPaletteDialogPreview() {
+private fun ColorPaletteDialogPreview() {
     Box(modifier = Modifier.wrapContentWidth()) {
         ColorPaletteDialog(checkedArgbColor = Color(0xFF1976D3).toArgb()) {
             Log.d("HabitsView", "clicked color = $it")
@@ -91,7 +91,7 @@ fun ColorPaletteDialogPreview() {
     }
 }
 
-fun colors(): List<Color> {
+private fun colors(): List<Color> {
     return listOf(
         Color(0xFFD32F2E),
         Color(0xFFE64A19),
@@ -104,7 +104,7 @@ fun colors(): List<Color> {
         Color(0xFF00887A),
         Color(0xFF00ACC2),
         Color(0xFF039BE6),
-        defaultColor,
+        defaultPaletteColor,
         Color(0xFFD61B60),
         Color(0xFF8E24AA),
         Color(0xFF5D35B0),
@@ -116,4 +116,4 @@ fun colors(): List<Color> {
     )
 }
 
-val defaultColor = Color(0xFF1976D3)
+val defaultPaletteColor = Color(0xFF1976D3)
