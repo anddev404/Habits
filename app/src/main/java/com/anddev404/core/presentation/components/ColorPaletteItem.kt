@@ -62,6 +62,6 @@ fun ColorPaletteItem(
 
 @Preview(showBackground = true)
 @Composable
-fun ColorPaletteItemPreview() {
+private fun ColorPaletteItemPreview() {
     ColorPaletteItem(Modifier.padding(10.dp), true, Color.Green)
 }
