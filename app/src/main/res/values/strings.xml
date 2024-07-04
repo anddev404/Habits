@@ -26,4 +26,13 @@
 
     <string name="change_color">Change color</string>
 
+    <string name="create_habit">Create a habit</string>
+
+    <string name="name">Name</string>
+    <string name="name_example">for example, exercises</string>
+    <string name="color">Color</string>
+
+
+
+
 </resources>
