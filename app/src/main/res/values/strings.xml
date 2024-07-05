@@ -32,7 +32,8 @@
     <string name="name_example">for example, exercises</string>
     <string name="color">Color</string>
 
-
+    <string name="archive">Archive</string>
+    <string name="delete">Delete</string>
 
 
 </resources>
