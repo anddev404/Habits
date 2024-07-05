@@ -2,7 +2,8 @@ package com.anddev404.show_habits.components.habits_view
 
 import android.content.res.Configuration
 import android.util.Log
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -24,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -37,23 +39,33 @@ import com.anddev404.show_habits.components.habits_view.items.HabitsValueItem
 import com.anddev404.show_habits.components.habits_view.items.HabitsYesOrNoItem
 import com.anddev404.show_habits.components.habits_view.states.HabitsViewItemState
 import com.anddev404.show_habits.components.habits_view.states.HabitsViewRowState
+import com.anddev404.ui.theme.BackgroundColor
+import com.anddev404.ui.theme.InactiveDarkColor
 import com.anddev404.ui.theme.InactiveLightColor
 import com.anddev404.ui.theme.LocalSpacing
 
 @Composable
 fun HabitsViewRow(
+    isChecked: Boolean = false,
     lazyListState: LazyListState = LazyListState(),
     state: HabitsViewRowState,
     event: (HabitsViewRowEvent) -> Unit = {}
 ) {
     Card(
+        border = if (isChecked) BorderStroke(2.dp, color = InactiveDarkColor) else null,
         modifier = Modifier.padding(1.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = if (isChecked) BackgroundColor else Color.White),
         shape = RoundedCornerShape(1.dp)
     ) {
         Row(modifier = Modifier
             .fillMaxWidth()
-            .clickable { event(HabitsViewRowEvent.OnRowClick(state)) }) {
+            .pointerInput(Unit) {
+                detectTapGestures(onTap = {
+                    event(HabitsViewRowEvent.OnRowClick(state))
+                }, onLongPress = {
+                    event(HabitsViewRowEvent.OnRowLongClick(state))
+                })
+            }) {
 
             val rowWeight: Float
             val lazyRowWeight: Float
@@ -169,7 +181,9 @@ private fun HabitsViewRowPreview() {
                     tag, "Row clicked: ${it.row.rowId}"
                 )
 
-                is HabitsViewRowEvent.OnRowLongClick -> {}
+                is HabitsViewRowEvent.OnRowLongClick -> {
+                    Log.d(tag, "Row long clicked: ${it.row.rowId}")
+                }
             }
         }
         HabitsViewRow(state = state2) {
@@ -194,7 +208,9 @@ private fun HabitsViewRowPreview() {
                     tag, "Row clicked: ${it.row.rowId}"
                 )
 
-                is HabitsViewRowEvent.OnRowLongClick -> {}
+                is HabitsViewRowEvent.OnRowLongClick -> {
+                    Log.d(tag, "Row long clicked: ${it.row.rowId}")
+                }
             }
         }
     }

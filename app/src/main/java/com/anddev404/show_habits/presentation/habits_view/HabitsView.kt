@@ -48,8 +48,11 @@ fun HabitsView(
         LazyColumn {
             itemsIndexed(habitsStates) { _, habitsState ->
                 HabitsViewRow(
-                    LazyListState(firstVisibleItemIndex, firstVisibleItemScrollOffset),
-                    habitsState
+                    lazyListState = LazyListState(
+                        firstVisibleItemIndex,
+                        firstVisibleItemScrollOffset
+                    ),
+                    state = habitsState
                 ) {
                     events(it)
                 }
