@@ -5,7 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.anddev404.create_habit.presentation.CreateHabitScreen
-import com.anddev404.habits.components.HabitsScreen
+import com.anddev404.show_habits.components.HabitsScreen
 
 @Composable
 fun Navigation() {

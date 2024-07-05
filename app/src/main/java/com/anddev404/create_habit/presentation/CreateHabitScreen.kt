@@ -6,8 +6,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.anddev404.habits.components.habits_view.HabitsView
-import com.anddev404.habits.components.main_top_bar.MainTopBar
 
 @Composable
 fun CreateHabitScreen() {
