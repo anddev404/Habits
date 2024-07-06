@@ -8,7 +8,7 @@ import com.anddev404.create_habit.presentation.CreateHabitScreen
 import com.anddev404.show_habits.presentation.HabitsScreen
 
 @Composable
-fun Navigation() {
+fun MainNavigation() {
     val navController = rememberNavController()
 
     NavHost(
