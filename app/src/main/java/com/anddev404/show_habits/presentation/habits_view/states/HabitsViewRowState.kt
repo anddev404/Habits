@@ -1,4 +1,4 @@
-package com.anddev404.show_habits.components.habits_view.states
+package com.anddev404.show_habits.presentation.habits_view.states
 
 import androidx.compose.ui.graphics.Color
 

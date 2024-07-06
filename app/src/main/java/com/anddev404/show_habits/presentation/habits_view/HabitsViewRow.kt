@@ -1,4 +1,4 @@
-package com.anddev404.show_habits.components.habits_view
+package com.anddev404.show_habits.presentation.habits_view
 
 import android.content.res.Configuration
 import android.util.Log
@@ -34,11 +34,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.anddev404.R
-import com.anddev404.show_habits.components.habits_view.events.HabitsViewRowEvent
-import com.anddev404.show_habits.components.habits_view.items.HabitsValueItem
-import com.anddev404.show_habits.components.habits_view.items.HabitsYesOrNoItem
-import com.anddev404.show_habits.components.habits_view.states.HabitsViewItemState
-import com.anddev404.show_habits.components.habits_view.states.HabitsViewRowState
+import com.anddev404.show_habits.presentation.habits_view.events.HabitsViewRowEvent
+import com.anddev404.show_habits.presentation.habits_view.items.HabitsValueItem
+import com.anddev404.show_habits.presentation.habits_view.items.HabitsYesOrNoItem
+import com.anddev404.show_habits.presentation.habits_view.states.HabitsViewItemState
+import com.anddev404.show_habits.presentation.habits_view.states.HabitsViewRowState
 import com.anddev404.ui.theme.BackgroundColor
 import com.anddev404.ui.theme.InactiveDarkColor
 import com.anddev404.ui.theme.InactiveLightColor

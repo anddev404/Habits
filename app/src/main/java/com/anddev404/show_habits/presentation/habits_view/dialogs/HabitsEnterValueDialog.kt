@@ -1,4 +1,4 @@
-package com.anddev404.show_habits.components.habits_view.dialogs
+package com.anddev404.show_habits.presentation.habits_view.dialogs
 
 import android.util.Log
 import androidx.compose.foundation.border

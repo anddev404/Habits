@@ -1,4 +1,4 @@
-package com.anddev404.show_habits.components
+package com.anddev404.show_habits.presentation
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
