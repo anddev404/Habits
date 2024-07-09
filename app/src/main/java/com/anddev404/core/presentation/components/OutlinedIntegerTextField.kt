@@ -36,7 +36,7 @@ fun OutlinedIntegerTextField(value: Int = 0, onDone: (value: Int) -> Unit = {}) 
             if (isCorrect(it)) text = it else return@OutlinedTextField
         },
         keyboardActions = KeyboardActions(onDone = {
-            if (isCorrect(text)) onDone(text.text.toInt())
+            if (isCorrect(text)) onDone(text.text.ToIntOrDefault(value))
             keyboardController?.hide()
         }),
         maxLines = 1,
@@ -54,6 +54,14 @@ private fun isCorrect(textFieldValue: TextFieldValue): Boolean {
         return textFieldValue.text.toInt() > 0
     }
     return false
+}
+
+fun String.ToIntOrDefault(defaultValue: Int = 0): Int {
+    try {
+        return this.toInt()
+    } catch (n: NumberFormatException) {
+        return defaultValue
+    }
 }
 
 @Preview
