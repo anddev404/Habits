@@ -41,4 +41,6 @@
     <string name="weekly">times a week</string>
     <string name="monthly">times a month</string>
 
+    <string name="frequency">Frequency</string>
+    
 </resources>
