@@ -179,14 +179,6 @@ private fun shouldBeSelected(
     return viewState == state
 }
 
-private fun getText(
-    state: YesOrNoFrequencyState,
-): String {
-    val frequency: String = if (state.frequency > 0) state.frequency.toString() else ""
-    return "${state.startText} $frequency ${state.endText}".trim()
-}
-
-
 @Preview
 @Composable
 private fun YesOrNoFrequencyDialogPreview() {
@@ -196,7 +188,7 @@ private fun YesOrNoFrequencyDialogPreview() {
         )
     }) {
         Log.d(
-            "YesOrNoFrequencyDialog", getText(it)
+            "YesOrNoFrequencyDialog", it.toString()
         )
     }
 }

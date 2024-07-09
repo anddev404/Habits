@@ -9,4 +9,9 @@ enum class YesOrNoFrequencyState(
     INTERVAL(3),
     WEEKLY(3),
     MONTHLY(10);
+
+    override fun toString(): String {
+        val frequency: String = if (frequency > 0) frequency.toString() else ""
+        return "${startText} $frequency ${endText}".trim()
+    }
 }
