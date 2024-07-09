@@ -35,5 +35,10 @@
     <string name="archive">Archive</string>
     <string name="delete">Delete</string>
 
+    <string name="daily">Daily</string>
+    <string name="interval_start_text">Every</string>
+    <string name="interval_end_text">days</string>
+    <string name="weekly">times a week</string>
+    <string name="monthly">times a month</string>
 
 </resources>
