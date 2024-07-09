@@ -56,7 +56,6 @@ fun YesOrNoFrequencyDialog(
                     .width(IntrinsicSize.Max),
             ) {
                 var selected by remember { mutableStateOf(state) }
-                val context = LocalContext.current
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -67,14 +66,10 @@ fun YesOrNoFrequencyDialog(
                     ),
                         onClick = {
                             selected =
-                                YesOrNoFrequencyState.DAILY.apply {
-                                    startText = context.getString(R.string.daily)
-                                }
+                                YesOrNoFrequencyState.DAILY
                         })
                     Text(text = stringResource(R.string.daily), Modifier.clickable {
-                        selected = YesOrNoFrequencyState.DAILY.apply {
-                            startText = context.getString(R.string.daily)
-                        }
+                        selected = YesOrNoFrequencyState.DAILY
                     })
                 }
 
@@ -87,10 +82,7 @@ fun YesOrNoFrequencyDialog(
                     RadioButton(selected = shouldBeSelected(
                         selected, YesOrNoFrequencyState.INTERVAL
                     ), onClick = {
-                        selected = YesOrNoFrequencyState.INTERVAL.apply {
-                            startText = context.getString(R.string.interval_start_text)
-                            endText = context.getString(R.string.interval_end_text)
-                        }
+                        selected = YesOrNoFrequencyState.INTERVAL
                     })
                     Text(
                         text = stringResource(R.string.interval_start_text),
@@ -99,8 +91,6 @@ fun YesOrNoFrequencyDialog(
                     OutlinedIntegerTextField(YesOrNoFrequencyState.INTERVAL.frequency) {
                         selected = YesOrNoFrequencyState.INTERVAL.apply {
                             frequency = it
-                            startText = context.getString(R.string.interval_start_text)
-                            endText = context.getString(R.string.interval_end_text)
                         }
                     }
                     Text(
@@ -118,14 +108,11 @@ fun YesOrNoFrequencyDialog(
                     RadioButton(selected = shouldBeSelected(
                         selected, YesOrNoFrequencyState.WEEKLY
                     ), onClick = {
-                        selected = YesOrNoFrequencyState.WEEKLY.apply {
-                            endText = context.getString(R.string.weekly)
-                        }
+                        selected = YesOrNoFrequencyState.WEEKLY
                     })
                     OutlinedIntegerTextField(YesOrNoFrequencyState.WEEKLY.frequency) {
                         selected = YesOrNoFrequencyState.WEEKLY.apply {
                             frequency = it
-                            endText = context.getString(R.string.weekly)
                         }
                     }
                     Text(
@@ -143,14 +130,11 @@ fun YesOrNoFrequencyDialog(
                     RadioButton(selected = shouldBeSelected(
                         selected, YesOrNoFrequencyState.MONTHLY
                     ), onClick = {
-                        selected = YesOrNoFrequencyState.MONTHLY.apply {
-                            endText = context.getString(R.string.monthly)
-                        }
+                        selected = YesOrNoFrequencyState.MONTHLY
                     })
                     OutlinedIntegerTextField(YesOrNoFrequencyState.MONTHLY.frequency) {
                         selected = YesOrNoFrequencyState.MONTHLY.apply {
                             frequency = it
-                            endText = context.getString(R.string.monthly)
                         }
                     }
                     Text(
@@ -182,13 +166,15 @@ private fun shouldBeSelected(
 @Preview
 @Composable
 private fun YesOrNoFrequencyDialogPreview() {
+    val context = LocalContext.current
+
     YesOrNoFrequencyDialog(onDismiss = {
         Log.d(
             "YesOrNoFrequencyDialog", "dismiss"
         )
     }) {
         Log.d(
-            "YesOrNoFrequencyDialog", it.toString()
+            "YesOrNoFrequencyDialog", it.toString(context)
         )
     }
 }
