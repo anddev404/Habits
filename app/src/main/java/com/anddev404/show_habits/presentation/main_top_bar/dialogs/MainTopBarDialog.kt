@@ -1,4 +1,4 @@
-package com.anddev404.show_habits.components.main_top_bar.dialogs
+package com.anddev404.show_habits.presentation.main_top_bar.dialogs
 
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -41,9 +41,8 @@ fun MainTopBarDialog(
     description1: String = stringResource(id = R.string.yes_or_no_description),
     header2: String = stringResource(id = R.string.measurable),
     description2: String = stringResource(id = R.string.measurable_description),
-    firstCardSelected: () -> Unit = {},
-    secondCardSelected: () -> Unit = {},
-    onDismiss: () -> Unit = {}
+    onDismiss: () -> Unit = {},
+    onEvent: (MainTopBarDialogEvent) -> Unit = {}
 ) {
 
     Row {
@@ -52,7 +51,7 @@ fun MainTopBarDialog(
                 Card(
                     modifier = Modifier
                         .padding(LocalSpacing.current.spaceMediumSmall)
-                        .clickable { firstCardSelected() }
+                        .clickable { onEvent(MainTopBarDialogEvent.OnAddHabitYesOrNoClick) }
                         .then(modifier)
                         .fillMaxWidth(),
                     colors = cardColors,
@@ -83,7 +82,7 @@ fun MainTopBarDialog(
                 Card(
                     modifier = Modifier
                         .padding(LocalSpacing.current.spaceMediumSmall)
-                        .clickable { secondCardSelected() }
+                        .clickable { onEvent(MainTopBarDialogEvent.OnAddHabitMeasurableClick) }
                         .then(modifier)
                         .fillMaxWidth(),
                     colors = cardColors,
@@ -119,8 +118,12 @@ fun MainTopBarDialog(
 @Composable
 private fun MainTopBarDialogPreview() {
     val tag = "MainTopBar"
-    MainTopBarDialog(firstCardSelected = { Log.d(tag, "first card selected") },
-        secondCardSelected = { Log.d(tag, "second card selected") }) {
+    MainTopBarDialog(onDismiss = {
         Log.d(tag, "dismiss")
+    }) {
+        when (it) {
+            MainTopBarDialogEvent.OnAddHabitMeasurableClick -> Log.d(tag, "first card selected")
+            MainTopBarDialogEvent.OnAddHabitYesOrNoClick -> Log.d(tag, "second card selected")
+        }
     }
 }
