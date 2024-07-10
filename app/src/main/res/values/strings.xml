@@ -31,6 +31,9 @@
     <string name="name">Name</string>
     <string name="name_example">for example, exercises</string>
     <string name="color">Color</string>
+    <string name="reminder">Reminder</string>
+    <string name="turned_off">Turned off</string>
+    <string name="notes">Notes</string>
 
     <string name="archive">Archive</string>
     <string name="delete">Delete</string>
