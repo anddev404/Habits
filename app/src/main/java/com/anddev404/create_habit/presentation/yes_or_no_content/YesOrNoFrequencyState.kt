@@ -4,28 +4,34 @@ import android.content.Context
 import com.anddev404.R
 
 enum class YesOrNoFrequencyState(
-    var frequency: Int = -1,
-    var startText: String = "",
-    var endText: String = ""
+    var frequency: Int = -1
 ) {
     DAILY(-1),
     INTERVAL(3),
     WEEKLY(3),
     MONTHLY(10);
 
+    private fun getStartText(context: Context): String {
+        return when (this) {
+            DAILY -> context.getString(R.string.daily)
+            INTERVAL -> context.getString(R.string.interval_start_text)
+            WEEKLY -> ""
+            MONTHLY -> ""
+        }
+    }
+
+    private fun getEndText(context: Context): String {
+        return when (this) {
+            DAILY -> ""
+            INTERVAL -> context.getString(R.string.interval_end_text)
+            WEEKLY -> context.getString(R.string.weekly)
+            MONTHLY -> context.getString(R.string.monthly)
+        }
+    }
+
     fun toString(context: Context): String {
         val frequency: String = if (frequency > 0) frequency.toString() else ""
 
-        when (this) {
-            DAILY -> startText = context.getString(R.string.daily)
-            INTERVAL -> {
-                startText = context.getString(R.string.interval_start_text)
-                endText = context.getString(R.string.interval_end_text)
-            }
-
-            WEEKLY -> endText = context.getString(R.string.weekly)
-            MONTHLY -> endText = context.getString(R.string.monthly)
-        }
-        return "${startText} $frequency ${endText}".trim()
+        return "${getStartText(context)} $frequency ${getEndText(context)}".trim()
     }
 }
