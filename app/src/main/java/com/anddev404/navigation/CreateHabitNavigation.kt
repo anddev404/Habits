@@ -8,12 +8,12 @@ import com.anddev404.create_habit.presentation.measurable_content.CreateHabitMea
 import com.anddev404.create_habit.presentation.yes_or_no_content.CreateHabitYesOrNoContent
 
 @Composable
-fun CreateHabitNavigation() {
+fun CreateHabitNavigation(startContentRoute: String) {
     val navController = rememberNavController()
 
     NavHost(
         navController = navController,
-        startDestination = Screen.CreateHabitYesOrNoContent.route
+        startDestination = startContentRoute
     ) {
         composable(Screen.CreateHabitYesOrNoContent.route) { CreateHabitYesOrNoContent() }
         composable(Screen.CreateHabitMeasurableContent.route) { CreateHabitMeasurableContent() }
