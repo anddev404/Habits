@@ -35,9 +35,7 @@ import com.anddev404.ui.theme.LocalSpacing
 
 @Composable
 fun YesOrNoFrequencyDialog(
-    state: YesOrNoFrequencyState = YesOrNoFrequencyState.DAILY.apply {
-        startText = stringResource(id = R.string.daily)
-    },
+    state: YesOrNoFrequencyState = YesOrNoFrequencyState.DAILY,
     cardColors: CardColors = CardDefaults.cardColors(containerColor = Color.White),
     shape: Shape = RoundedCornerShape(2.dp),
     onDismiss: () -> Unit = {},
