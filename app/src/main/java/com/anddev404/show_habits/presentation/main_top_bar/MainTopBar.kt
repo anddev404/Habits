@@ -29,13 +29,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.anddev404.R
-import com.anddev404.show_habits.components.main_top_bar.dialogs.MainTopBarDialog
 import com.anddev404.show_habits.components.main_top_bar.events.MainTopBarFilterMenuEvent
 import com.anddev404.show_habits.components.main_top_bar.events.MainTopBarMainMenuEvent
 import com.anddev404.show_habits.components.main_top_bar.events.MainTopBarSortMenuEvent
 import com.anddev404.show_habits.components.main_top_bar.menus.MainTopBarFilterMenu
 import com.anddev404.show_habits.components.main_top_bar.menus.MainTopBarMainMenu
 import com.anddev404.show_habits.components.main_top_bar.menus.MainTopBarSortMenu
+import com.anddev404.show_habits.presentation.main_top_bar.MainTopBarEvents
+import com.anddev404.show_habits.presentation.main_top_bar.dialogs.MainTopBarDialog
 import com.anddev404.ui.theme.LocalSpacing
 import com.anddev404.ui.theme.MainColor
 
@@ -43,7 +44,7 @@ import com.anddev404.ui.theme.MainColor
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
-fun MainTopBar() {
+fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
     TopAppBar(colors = TopAppBarDefaults.topAppBarColors(
         containerColor = MainColor
     ), title = {
@@ -66,12 +67,11 @@ fun MainTopBar() {
 
             var showDialog by remember { mutableStateOf(false) }
             if (showDialog) {
-                MainTopBarDialog(
-                    firstCardSelected = {},
-                    secondCardSelected = {},
-                    onDismiss = { showDialog = false })
+                MainTopBarDialog(onDismiss = { showDialog = false }) {
+                    showDialog = false
+                    onEvent(MainTopBarEvents.OnAddHabitClick(it))
+                }
             }
-
             Icon(
                 imageVector = Icons.Default.Add,
                 "",
