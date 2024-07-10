@@ -4,8 +4,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Icon
@@ -24,13 +24,13 @@ import com.anddev404.R
 
 @Composable
 fun CreateHabitYesOrNoContent(
-    state: YesOrNoFrequencyState = YesOrNoFrequencyState.DAILY
+    state: YesOrNoFrequencyState = YesOrNoFrequencyState.DAILY,
+    onEvent: (YesOrNoFrequencyState) -> Unit = {}
 ) {
     var showDialog by remember { mutableStateOf(false) }
 
     Box(
         modifier = Modifier
-            .width(IntrinsicSize.Max)
             .height(IntrinsicSize.Max)
     ) {
 
@@ -40,10 +40,11 @@ fun CreateHabitYesOrNoContent(
         if (showDialog) {
             YesOrNoFrequencyDialog(chosenOption, onDismiss = { showDialog = false }) {
                 chosenOption = it
+                onEvent(it)
                 showDialog = false
             }
         }
-        OutlinedTextField(
+        OutlinedTextField(modifier = Modifier.fillMaxWidth(),
             value = chosenOption.toString(context),
             readOnly = true,
             onValueChange = {},
@@ -51,13 +52,11 @@ fun CreateHabitYesOrNoContent(
             label = { Text(text = stringResource(id = R.string.frequency)) },
             trailingIcon = {
                 Icon(imageVector = Icons.Default.ArrowDropDown, "")
-            }
-        )
+            })
 
         Box(modifier = Modifier
             .fillMaxSize()
-            .clickable { showDialog = true }) {
-        }
+            .clickable { showDialog = true })
     }
 }
 
