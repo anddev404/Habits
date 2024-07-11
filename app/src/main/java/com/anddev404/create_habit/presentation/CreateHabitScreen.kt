@@ -22,6 +22,9 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color.Companion.Green
@@ -29,6 +32,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.anddev404.R
+import com.anddev404.core.presentation.components.ColorPaletteDialog
 import com.anddev404.create_habit.presentation.create_habit_top_bar.CreateHabitTopBar
 import com.anddev404.navigation.CreateHabitNavigation
 import com.anddev404.navigation.Screen
@@ -69,6 +73,13 @@ fun CreateHabitScreen(
                             .fillMaxHeight()
                             .width(64.dp)
                     ) {
+                        val showColorPalette by remember {
+                            mutableStateOf(false)
+                        }
+                        if (showColorPalette) ColorPaletteDialog() {
+                            if (it == 0) return@ColorPaletteDialog
+
+                        }
                         OutlinedTextField(
                             modifier = Modifier
                                 .fillMaxHeight()
