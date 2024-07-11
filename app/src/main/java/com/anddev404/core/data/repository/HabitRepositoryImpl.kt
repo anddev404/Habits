@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 class HabitRepositoryImpl(private val database: HabitDatabase) : HabitRepository {
 
-    override suspend fun getAllHabits(): Flow<List<HabitEntity>> {
+    override fun getAllHabits(): Flow<List<HabitEntity>> {
         return database.habitDao().getAll()
     }
 
