@@ -37,8 +37,13 @@ import com.anddev404.ui.theme.InactiveLightColor
 import com.anddev404.ui.theme.LocalSpacing
 
 @Composable
-fun CreateHabitScreen(state: MainTopBarDialogEvent = MainTopBarDialogEvent.OnAddHabitYesOrNoClick) {
-    Scaffold(modifier = Modifier.fillMaxSize(), topBar = { CreateHabitTopBar() }) { innerPadding ->
+fun CreateHabitScreen(
+    state: MainTopBarDialogEvent = MainTopBarDialogEvent.OnAddHabitYesOrNoClick,
+    onBackClick: () -> Unit = {}
+) {
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = { CreateHabitTopBar(onBackClick = { onBackClick() }) }) { innerPadding ->
         Column(
             modifier = Modifier
                 .padding(innerPadding)
