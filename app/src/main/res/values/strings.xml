@@ -46,4 +46,7 @@
 
     <string name="frequency">Frequency</string>
 
+    <string name="no_habits">You don\'t have any active habits.</string>
+
+
 </resources>
