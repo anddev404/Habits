@@ -6,7 +6,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface HabitRepository {
 
-    @Query("SELECT * FROM HabitEntity")
+    fun getHabitById(id: Int): Flow<HabitEntity?>
+
     fun getAllHabits(): Flow<List<HabitEntity>>
 
     suspend fun insertHabit(habit: HabitEntity)

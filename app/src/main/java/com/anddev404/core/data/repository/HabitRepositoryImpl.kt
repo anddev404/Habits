@@ -7,6 +7,10 @@ import kotlinx.coroutines.flow.Flow
 
 class HabitRepositoryImpl(private val database: HabitDatabase) : HabitRepository {
 
+    override fun getHabitById(id: Int): Flow<HabitEntity?> {
+        return database.habitDao().getHabitById(id)
+    }
+
     override fun getAllHabits(): Flow<List<HabitEntity>> {
         return database.habitDao().getAll()
     }
