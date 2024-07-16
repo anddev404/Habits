@@ -22,3 +22,21 @@ fun HabitEntity.toHabit(): Habit {
         id
     )
 }
+
+fun Habit.toHabitEntity(): HabitEntity {
+    return HabitEntity(
+        name.text,
+        notes.text,
+        color,
+        isArchived,
+        position,
+        reminder,
+        habitType,
+        frequencyNumerator,
+        frequencyDenominator,
+        unit,
+        target,
+        targetType,
+        id
+    )
+}
