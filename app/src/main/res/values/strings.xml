@@ -48,5 +48,6 @@
 
     <string name="no_habits">You don\'t have any active habits.</string>
 
+    <string name="empty_field">Empty field</string>
 
 </resources>
