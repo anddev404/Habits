@@ -22,7 +22,7 @@ import com.anddev404.ui.theme.TextColor
 
 @Preview(showBackground = true)
 @Composable
-fun HabitsEmptyView() {
+fun HabitsEmptyView(modifier: Modifier = Modifier) {
 
     val imageWidth =
         if (LocalConfiguration.current.orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -32,7 +32,7 @@ fun HabitsEmptyView() {
         }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
