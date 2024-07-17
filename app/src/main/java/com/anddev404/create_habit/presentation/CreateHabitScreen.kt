@@ -52,7 +52,7 @@ fun CreateHabitScreen(
     viewModel: CreateHabitViewModel = hiltViewModel(),
     onBackClick: () -> Unit = {}
 ) {
-    if (id > 0) viewModel.getHabitById(id) else viewModel.createNewHabit()
+    if (id > 0) viewModel.getHabitById(id) else viewModel.createNewHabit(state)
 
     Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
         CreateHabitTopBar(onBackClick = { onBackClick() }) {

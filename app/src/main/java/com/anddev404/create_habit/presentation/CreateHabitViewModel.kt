@@ -6,6 +6,7 @@ import com.anddev404.core.data.mapper.toHabit
 import com.anddev404.core.data.mapper.toHabitEntity
 import com.anddev404.core.domain.repository.HabitRepository
 import com.anddev404.show_habits.domain.model.Habit
+import com.anddev404.show_habits.presentation.main_top_bar.dialogs.MainTopBarDialogEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -37,7 +38,8 @@ class CreateHabitViewModel @Inject constructor(private val repository: HabitRepo
         }
     }
 
-    fun createNewHabit() {
+    fun createNewHabit(state: MainTopBarDialogEvent) {
+        _habitState.value = _habitState.value.copy(habitType = state.contentId)
         _processState.value = CreateHabitState.HabitCreating
     }
 
