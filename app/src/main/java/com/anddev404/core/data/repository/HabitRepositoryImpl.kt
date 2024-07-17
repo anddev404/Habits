@@ -2,10 +2,19 @@ package com.anddev404.core.data.repository
 
 import com.anddev404.core.data.local.HabitDatabase
 import com.anddev404.core.data.local.entity.HabitEntity
+import com.anddev404.core.data.local.entity.ItemEntity
 import com.anddev404.core.domain.repository.HabitRepository
 import kotlinx.coroutines.flow.Flow
 
 class HabitRepositoryImpl(private val database: HabitDatabase) : HabitRepository {
+
+    override fun getItemsAfterDate(date: Long): Flow<List<ItemEntity>> {
+        return database.itemDao().getItemsAfterDate(date)
+    }
+
+    override suspend fun insertItem(item: ItemEntity) {
+        database.itemDao().insert(item)
+    }
 
     override fun getHabitById(id: Int): Flow<HabitEntity?> {
         return database.habitDao().getHabitById(id)
