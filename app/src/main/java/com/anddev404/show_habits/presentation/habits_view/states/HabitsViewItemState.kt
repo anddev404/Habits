@@ -5,13 +5,20 @@ import com.anddev404.ui.theme.InactiveDarkColor
 
 sealed class HabitsViewItemState() {
     data class YesOrNo(
-        val id: Int,
+        var id: Int,
+        var habitId: Int,
         var isChecked: Boolean = false,
-        val color: Color = InactiveDarkColor
+        var color: Color = InactiveDarkColor,
+        var date: Long = 0
     ) :
         HabitsViewItemState()
 
     data class Value(
-        val id: Int, var unit: String, var value: Int = 0, var color: Color = InactiveDarkColor
+        var id: Int,
+        var habitId: Int,
+        var unit: String,
+        var value: Double = 0.0,
+        var color: Color = InactiveDarkColor,
+        var date: Long = 0
     ) : HabitsViewItemState()
 }

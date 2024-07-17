@@ -44,7 +44,7 @@ fun HabitsValueItem(
     }
 }
 
-fun Int.formatNumber(): String {
+fun Double.formatNumber(): String {
     return when {
         this >= 1_000_000 -> String.format("%.1fM", this / 1_000_000.0)
         this >= 10_000 -> String.format("%dk", this / 1_000)
@@ -60,8 +60,9 @@ private fun HabitsValueItemPreview1() {
     HabitsValueItem(
         HabitsViewItemState.Value(
             1,
+            0,
             unit = "km",
-            value = 10,
+            value = 10.0,
             color = Color.Blue
         )
     ) {
@@ -76,6 +77,7 @@ private fun HabitsValueItemPreview2() {
     HabitsValueItem(
         HabitsViewItemState.Value(
             1,
+            0,
             unit = "km"
         )
     ) {
