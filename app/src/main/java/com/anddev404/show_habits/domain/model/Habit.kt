@@ -18,6 +18,6 @@ data class Habit(
     val unit: String = "",
     val target: Double = 0.0,
     val targetType: Int = 0,
-    val id: Int? = null
+    val id: Int = 0
 ) {
 }
