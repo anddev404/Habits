@@ -1,4 +1,4 @@
-package com.anddev404.create_habit.domain
+package com.anddev404.create_habit.domain.use_case
 
 import com.anddev404.core.data.local.entity.HabitEntity
 import com.anddev404.core.domain.repository.HabitRepository
