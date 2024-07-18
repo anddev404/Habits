@@ -135,21 +135,21 @@ fun HabitsViewRow(
 @Composable
 private fun HabitsViewRowPreview() {
     val yesOrNoList: List<HabitsViewItemState.YesOrNo> = listOf(
-        HabitsViewItemState.YesOrNo(1, true, Color.Blue),
-        HabitsViewItemState.YesOrNo(2, false, Color.Blue),
-        HabitsViewItemState.YesOrNo(3, false, Color.Blue),
-        HabitsViewItemState.YesOrNo(4, false, Color.Blue),
-        HabitsViewItemState.YesOrNo(5, true, Color.Blue),
-        HabitsViewItemState.YesOrNo(6, true, Color.Blue)
+        HabitsViewItemState.YesOrNo(1, 0, true, Color.Blue),
+        HabitsViewItemState.YesOrNo(2, 0, false, Color.Blue),
+        HabitsViewItemState.YesOrNo(3, 0, false, Color.Blue),
+        HabitsViewItemState.YesOrNo(4, 0, false, Color.Blue),
+        HabitsViewItemState.YesOrNo(5, 0, true, Color.Blue),
+        HabitsViewItemState.YesOrNo(6, 0, true, Color.Blue)
     )
 
     val valueList: List<HabitsViewItemState.Value> = listOf(
-        HabitsViewItemState.Value(1, "km", color = Color.Red),
-        HabitsViewItemState.Value(2, "km", 1, Color.Red),
-        HabitsViewItemState.Value(3, "km", 5, Color.Red),
-        HabitsViewItemState.Value(4, "km", 10, Color.Red),
-        HabitsViewItemState.Value(5, "km", 15, Color.Red),
-        HabitsViewItemState.Value(6, "km", 20, Color.Red)
+        HabitsViewItemState.Value(1, 0, "km", color = Color.Red),
+        HabitsViewItemState.Value(2, 0, "km", 1.0, Color.Red),
+        HabitsViewItemState.Value(3, 0, "km", 5.0, Color.Red),
+        HabitsViewItemState.Value(4, 0, "km", 10.0, Color.Red),
+        HabitsViewItemState.Value(5, 0, "km", 15.0, Color.Red),
+        HabitsViewItemState.Value(6, 0, "km", 20.0, Color.Red)
     )
     val state1 = HabitsViewRowState(
         1, "row test", 0.7f, yesOrNoList, color = Color.Red
@@ -159,7 +159,7 @@ private fun HabitsViewRowPreview() {
     )
     val tag = "HabitsView"
     Column {
-        HabitsViewRow(state = state1) {
+        HabitsViewRow(isChecked = true, state = state1) {
             when (it) {
                 is HabitsViewRowEvent.OnItemClick -> {
                     when (it.item) {
