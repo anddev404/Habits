@@ -10,7 +10,7 @@ interface HabitRepository {
 
     suspend fun insertItem(item: ItemEntity)
 
-    fun getHabitById(id: Int): Flow<HabitEntity?>
+    suspend fun getHabitById(id: Int): HabitEntity?
 
     fun getAllHabits(): Flow<List<HabitEntity>>
 

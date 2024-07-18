@@ -26,15 +26,12 @@ class CreateHabitViewModel @Inject constructor(private val repository: HabitRepo
 
     fun getHabitById(id: Int) {
         viewModelScope.launch {
-            repository.getHabitById(id)
-                .collect { habitEntity ->
-                    habitEntity?.let {
-                        _habitState.value = habitEntity.toHabit()
-                        _processState.value = CreateHabitState.HabitEditing
-                        return@collect
-                    }
-                    _processState.value = CreateHabitState.HabitDoesNotExist
-                }
+            repository.getHabitById(id)?.let {
+                _habitState.value = it.toHabit()
+                _processState.value = CreateHabitState.HabitEditing
+                return@launch
+            }
+            _processState.value = CreateHabitState.HabitDoesNotExist
         }
     }
 

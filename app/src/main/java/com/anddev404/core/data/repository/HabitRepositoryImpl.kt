@@ -16,7 +16,7 @@ class HabitRepositoryImpl(private val database: HabitDatabase) : HabitRepository
         database.itemDao().insert(item)
     }
 
-    override fun getHabitById(id: Int): Flow<HabitEntity?> {
+    override suspend fun getHabitById(id: Int): HabitEntity? {
         return database.habitDao().getHabitById(id)
     }
 
