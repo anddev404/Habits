@@ -5,8 +5,8 @@ import com.anddev404.ui.theme.InactiveDarkColor
 
 sealed class HabitsViewItemState() {
     data class YesOrNo(
-        var id: Int,
-        var habitId: Int,
+        var id: Int = 0,
+        var habitId: Int = 0,
         var isChecked: Boolean = false,
         var color: Color = InactiveDarkColor,
         var date: Long = 0
@@ -14,9 +14,9 @@ sealed class HabitsViewItemState() {
         HabitsViewItemState()
 
     data class Value(
-        var id: Int,
-        var habitId: Int,
-        var unit: String,
+        var id: Int = 0,
+        var habitId: Int = 0,
+        var unit: String = "",
         var value: Double = 0.0,
         var color: Color = InactiveDarkColor,
         var date: Long = 0
