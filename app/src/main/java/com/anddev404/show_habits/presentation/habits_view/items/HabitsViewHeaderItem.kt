@@ -30,14 +30,14 @@ fun HabitsViewHeaderItem(
         Text(
             color = TextColor,
             modifier = Modifier.padding(0.dp),
-            text = state.dayOfTheWeek,
+            text = state.dayOfWeek,
             maxLines = 1,
             fontSize = LocalSpacing.current.fontSizeMedium,
             fontWeight = FontWeight.Bold,
         )
         Text(
             color = TextColor,
-            text = state.dayOfTheMonth.toString(),
+            text = state.dayOfMonth.toString(),
             fontSize = LocalSpacing.current.fontSizeMediumSmall,
             maxLines = 1,
             fontWeight = FontWeight.Bold,
@@ -50,15 +50,15 @@ fun HabitsViewHeaderItem(
 @Composable
 private fun HabitsValueItemPreview1() {
     Row {
-        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfTheWeek = "Mon", dayOfTheMonth = 1))
-        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfTheWeek = "Tue", dayOfTheMonth = 2))
-        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfTheWeek = "Wed", dayOfTheMonth = 3))
-        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfTheWeek = "Thu", dayOfTheMonth = 4))
-        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfTheWeek = "Fri", dayOfTheMonth = 5))
-        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfTheWeek = "Sat", dayOfTheMonth = 6))
-        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfTheWeek = "Sun", dayOfTheMonth = 7))
-        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfTheWeek = "Mon", dayOfTheMonth = 8))
-        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfTheWeek = "Tue", dayOfTheMonth = 9))
-        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfTheWeek = "Wed", dayOfTheMonth = 10))
+        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfWeek = "Mon", dayOfMonth = 1))
+        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfWeek = "Tue", dayOfMonth = 2))
+        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfWeek = "Wed", dayOfMonth = 3))
+        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfWeek = "Thu", dayOfMonth = 4))
+        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfWeek = "Fri", dayOfMonth = 5))
+        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfWeek = "Sat", dayOfMonth = 6))
+        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfWeek = "Sun", dayOfMonth = 7))
+        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfWeek = "Mon", dayOfMonth = 8))
+        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfWeek = "Tue", dayOfMonth = 9))
+        HabitsViewHeaderItem(HabitsViewHeaderItemState(dayOfWeek = "Wed", dayOfMonth = 10))
     }
 }

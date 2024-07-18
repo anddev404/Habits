@@ -59,21 +59,22 @@ fun HabitsViewHeader(
 @Composable
 private fun HabitsViewHeaderPreview() {
     val list: List<HabitsViewHeaderItemState> = listOf(
-        HabitsViewHeaderItemState(dayOfTheWeek = "Mon", dayOfTheMonth = 1),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Tue", dayOfTheMonth = 2),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Wed", dayOfTheMonth = 3),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Thu", dayOfTheMonth = 4),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Fri", dayOfTheMonth = 5),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Sat", dayOfTheMonth = 6),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Sun", dayOfTheMonth = 7),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Mon", dayOfTheMonth = 8),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Tue", dayOfTheMonth = 9),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Wed", dayOfTheMonth = 10),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Thu", dayOfTheMonth = 11),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Fri", dayOfTheMonth = 12),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Sat", dayOfTheMonth = 13),
-        HabitsViewHeaderItemState(dayOfTheWeek = "Sun", dayOfTheMonth = 14),
-    )
+        HabitsViewHeaderItemState(dayOfWeek = "Mon", dayOfMonth = 1),
+        HabitsViewHeaderItemState(dayOfWeek = "Tue", dayOfMonth = 2),
+        HabitsViewHeaderItemState(dayOfWeek = "Wed", dayOfMonth = 3),
+        HabitsViewHeaderItemState(dayOfWeek = "Thu", dayOfMonth = 4),
+        HabitsViewHeaderItemState(dayOfWeek = "Fri", dayOfMonth = 5),
+        HabitsViewHeaderItemState(dayOfWeek = "Sat", dayOfMonth = 6),
+        HabitsViewHeaderItemState(dayOfWeek = "Sun", dayOfMonth = 7),
+        HabitsViewHeaderItemState(dayOfWeek = "Mon", dayOfMonth = 8),
+        HabitsViewHeaderItemState(dayOfWeek = "Tue", dayOfMonth = 9),
+        HabitsViewHeaderItemState(dayOfWeek = "Wed", dayOfMonth = 10),
+        HabitsViewHeaderItemState(dayOfWeek = "Thu", dayOfMonth = 11),
+        HabitsViewHeaderItemState(dayOfWeek = "Fri", dayOfMonth = 12),
+        HabitsViewHeaderItemState(dayOfWeek = "Sat", dayOfMonth = 13),
+        HabitsViewHeaderItemState(dayOfWeek = "Sun", dayOfMonth = 14),
+
+        )
     HabitsViewHeader(list) {
         Log.d(
             "HabitsView",
