@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.anddev404"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.anddev404"
