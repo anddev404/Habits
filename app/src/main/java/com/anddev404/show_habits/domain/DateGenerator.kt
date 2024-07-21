@@ -15,7 +15,7 @@ object DateGenerator {
             val year = date.year
             val month = date.monthValue
             val day = date.dayOfMonth
-            val dayOfWeek = date.dayOfWeek.value.toString()
+            val dayOfWeek = date.dayOfWeek.value
 
             datesList.add(CustomDate(year, month, day, dayOfWeek))
         }
