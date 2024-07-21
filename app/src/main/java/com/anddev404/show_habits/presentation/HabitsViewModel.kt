@@ -9,6 +9,7 @@ import com.anddev404.core.data.local.entity.HabitEntity
 import com.anddev404.core.data.local.entity.ItemEntity
 import com.anddev404.core.domain.repository.HabitRepository
 import com.anddev404.show_habits.domain.DateGenerator.getCustomDatesFromToday
+import com.anddev404.show_habits.domain.model.DayOfWeek
 import com.anddev404.show_habits.presentation.habits_view.states.HabitsViewHeaderItemState
 import com.anddev404.show_habits.presentation.habits_view.states.HabitsViewItemState
 import com.anddev404.show_habits.presentation.habits_view.states.HabitsViewRowState
@@ -22,7 +23,10 @@ import javax.inject.Inject
 
 @RequiresApi(Build.VERSION_CODES.O)
 @HiltViewModel
-class HabitsViewModel @Inject constructor(private val repository: HabitRepository) : ViewModel() {
+class HabitsViewModel @Inject constructor(
+    private val repository: HabitRepository,
+    private val dayOfWeek: DayOfWeek
+) : ViewModel() {
 
     private val _habitState = MutableStateFlow(listOf<HabitEntity>())
     private val _itemState = MutableStateFlow(listOf<ItemEntity>())
@@ -34,7 +38,7 @@ class HabitsViewModel @Inject constructor(private val repository: HabitRepositor
     init {
         header = getCustomDatesFromToday(30).map {
             HabitsViewHeaderItemState(
-                it.dayOfWeek, it.day, it.month, it.year
+                dayOfWeek.getDayOfWeek(it.dayOfWeek), it.day, it.month, it.year
             )
         }
 
