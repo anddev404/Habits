@@ -82,16 +82,16 @@ fun HabitsViewRow(
 
                 Spacer(modifier = Modifier.width(LocalSpacing.current.spaceSmall))
                 CircularProgressIndicator(
-                    state.progress,
-                    trackColor = InactiveLightColor,
-                    color = state.color,
-                    strokeWidth = 3.dp,
+                    progress = { state.progress },
                     modifier = Modifier
                         .height(LocalSpacing.current.habitItemSize)
                         .wrapContentHeight(
                             align = Alignment.CenterVertically
                         )
-                        .size(16.dp)
+                        .size(16.dp),
+                    color = state.color,
+                    strokeWidth = 3.dp,
+                    trackColor = InactiveLightColor,
                 )
 
                 Spacer(modifier = Modifier.width(LocalSpacing.current.spaceSmall))

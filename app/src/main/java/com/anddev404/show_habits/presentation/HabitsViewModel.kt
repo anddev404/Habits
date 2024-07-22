@@ -1,7 +1,5 @@
 package com.anddev404.show_habits.presentation
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -21,11 +19,9 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@RequiresApi(Build.VERSION_CODES.O)
 @HiltViewModel
 class HabitsViewModel @Inject constructor(
-    private val repository: HabitRepository,
-    private val dayOfWeek: DayOfWeek
+    private val repository: HabitRepository, private val dayOfWeek: DayOfWeek
 ) : ViewModel() {
 
     private val _habitState = MutableStateFlow(listOf<HabitEntity>())
@@ -54,11 +50,7 @@ class HabitsViewModel @Inject constructor(
 
                     val item = when (habit.habitType) {
                         1 -> HabitsViewItemState.YesOrNo(
-                            0,
-                            habit.id,
-                            false,
-                            Color(habit.color),
-                            header.getTimeInMilliseconds()
+                            0, habit.id, false, Color(habit.color), header.getTimeInMilliseconds()
                         )
 
                         2 -> HabitsViewItemState.Value(
@@ -106,9 +98,13 @@ class HabitsViewModel @Inject constructor(
                         }
                     }
                 }
-
                 HabitsViewRowState(
-                    name = habit.name, color = Color(habit.color), itemList = items
+                    name = habit.name,
+                    color = Color(habit.color),
+                    itemList = items,
+                    progress = calculateProgress(
+                        items, habit.frequencyNumerator, habit.frequencyDenominator
+                    )
                 )
             }
         }.launchIn(viewModelScope)
@@ -118,8 +114,7 @@ class HabitsViewModel @Inject constructor(
 
         viewModelScope.launch {
             launch {
-                repository.getAllHabits()
-                    .collect {
+                repository.getAllHabits().collect {
                         _habitState.value = it
                     }
             }
@@ -130,19 +125,11 @@ class HabitsViewModel @Inject constructor(
 
         val entity = when (item) {
             is HabitsViewItemState.Value -> ItemEntity(
-                item.date,
-                false,
-                item.value,
-                item.habitId,
-                item.id
+                item.date, false, item.value, item.habitId, item.id
             )
 
             is HabitsViewItemState.YesOrNo -> ItemEntity(
-                item.date,
-                item.isChecked,
-                0.0,
-                item.habitId,
-                item.id
+                item.date, item.isChecked, 0.0, item.habitId, item.id
             )
         }
         viewModelScope.launch {
@@ -158,5 +145,41 @@ class HabitsViewModel @Inject constructor(
                 _itemState.value = _itemState.value.toMutableList().apply { addAll(it) }
             }
         }
+    }
+
+    private fun calculateProgress(
+        items: List<HabitsViewItemState>, frequencyNumerator: Int,
+        frequencyDenominator: Int,
+    ): Float {
+        if (frequencyDenominator < 1) return 0f
+        val fulfilledProgress = arrayListOf<Boolean>()
+
+        val grouped = items.chunked(frequencyDenominator)
+        grouped.forEach { group ->
+            val counted = group.count {
+                when (it) {
+                    is HabitsViewItemState.Value -> {
+                        false
+                    }
+
+                    is HabitsViewItemState.YesOrNo -> {
+                        it.isChecked
+                    }
+                }
+            }
+
+            if (counted >= frequencyNumerator) fulfilledProgress.add(true) else fulfilledProgress.add(
+                false
+            )
+        }
+
+        return fulfilledProgressToFloat(fulfilledProgress)
+    }
+
+    private fun fulfilledProgressToFloat(list: List<Boolean>): Float {
+        if (list.isEmpty()) return 0f
+
+        val countTrue = list.count { it }
+        return countTrue.toFloat() / list.size
     }
 }
