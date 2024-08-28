@@ -1,5 +1,9 @@
-package com.anddev404.show_habits.components.main_top_bar
+package com.anddev404.show_habits.presentation.main_top_bar
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,6 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
@@ -35,7 +40,6 @@ import com.anddev404.show_habits.components.main_top_bar.events.MainTopBarSortMe
 import com.anddev404.show_habits.components.main_top_bar.menus.MainTopBarFilterMenu
 import com.anddev404.show_habits.components.main_top_bar.menus.MainTopBarMainMenu
 import com.anddev404.show_habits.components.main_top_bar.menus.MainTopBarSortMenu
-import com.anddev404.show_habits.presentation.main_top_bar.MainTopBarEvents
 import com.anddev404.show_habits.presentation.main_top_bar.dialogs.MainTopBarDialog
 import com.anddev404.ui.theme.LocalSpacing
 import com.anddev404.ui.theme.MainColor
@@ -45,6 +49,9 @@ import com.anddev404.ui.theme.MainColor
 @Preview
 @Composable
 fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
+
+    val context = LocalContext.current
+
     TopAppBar(colors = TopAppBarDefaults.topAppBarColors(
         containerColor = MainColor
     ), title = {
@@ -84,12 +91,26 @@ fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
             if (expandedSortMenu) {
                 MainTopBarSortMenu {
                     when (it) {
-                        MainTopBarSortMenuEvent.OnByColorClick -> {}
-                        MainTopBarSortMenuEvent.OnByNameClick -> {}
-                        MainTopBarSortMenuEvent.OnByResultClick -> {}
-                        MainTopBarSortMenuEvent.OnByStatusClick -> {}
+                        MainTopBarSortMenuEvent.OnByColorClick -> showNotAvailableYetToast(
+                            context
+                        )
+
+                        MainTopBarSortMenuEvent.OnByNameClick -> showNotAvailableYetToast(
+                            context
+                        )
+
+                        MainTopBarSortMenuEvent.OnByResultClick -> showNotAvailableYetToast(
+                            context
+                        )
+
+                        MainTopBarSortMenuEvent.OnByStatusClick -> showNotAvailableYetToast(
+                            context
+                        )
+
                         MainTopBarSortMenuEvent.OnDismissClick -> expandedSortMenu = false
-                        MainTopBarSortMenuEvent.OnManuallyClick -> {}
+                        MainTopBarSortMenuEvent.OnManuallyClick -> showNotAvailableYetToast(
+                            context
+                        )
                     }
                 }
             }
@@ -105,8 +126,13 @@ fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
 
                         }
 
-                        is MainTopBarFilterMenuEvent.OnToggleHideArchived -> {}
-                        is MainTopBarFilterMenuEvent.OnToggleHideCompleted -> {}
+                        is MainTopBarFilterMenuEvent.OnToggleHideArchived -> showNotAvailableYetToast(
+                            context
+                        )
+
+                        is MainTopBarFilterMenuEvent.OnToggleHideCompleted -> showNotAvailableYetToast(
+                            context
+                        )
                     }
                 }
             }
@@ -123,11 +149,19 @@ fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
             if (expandedMainMenu) {
                 MainTopBarMainMenu {
                     when (it) {
-                        MainTopBarMainMenuEvent.OnAboutClick -> {}
-                        MainTopBarMainMenuEvent.OnSettingsClick -> {}
-                        MainTopBarMainMenuEvent.OnSupportClick -> {}
+                        MainTopBarMainMenuEvent.OnAboutClick -> showNotAvailableYetToast(context)
+                        MainTopBarMainMenuEvent.OnSettingsClick -> showNotAvailableYetToast(
+                            context
+                        )
+
+                        MainTopBarMainMenuEvent.OnSupportClick -> showNotAvailableYetToast(
+                            context
+                        )
+
                         MainTopBarMainMenuEvent.OnCloseClick -> expandedMainMenu = false
-                        is MainTopBarMainMenuEvent.OnToggleNightModeClick -> {}
+                        is MainTopBarMainMenuEvent.OnToggleNightModeClick -> showNotAvailableYetToast(
+                            context
+                        )
                     }
                 }
             }
