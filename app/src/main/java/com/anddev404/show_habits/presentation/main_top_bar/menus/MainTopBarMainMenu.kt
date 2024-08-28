@@ -63,9 +63,9 @@ fun MainTopBarMainMenu(
                                 )
                             )
                         }, modifier = Modifier.padding(
-                                start = LocalSpacing.current.spaceMediumSmall,
-                                end = LocalSpacing.current.spaceMediumSmall
-                            )
+                            start = LocalSpacing.current.spaceMediumSmall,
+                            end = LocalSpacing.current.spaceMediumSmall
+                        )
                     )
                 }
             }, onClick = {
@@ -106,6 +106,26 @@ fun MainTopBarMainMenu(
             }, onClick = {
                 clickEvent(MainTopBarMainMenuEvent.OnAboutClick)
             })
+            DropdownMenuItem(text = {
+                Text(
+                    text = stringResource(R.string.privacy_policy),
+                    modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
+                    color = textColor,
+                    fontFamily = font
+                )
+            }, onClick = {
+                clickEvent(MainTopBarMainMenuEvent.OnPrivacyPolicyClick)
+            })
+            DropdownMenuItem(text = {
+                Text(
+                    text = stringResource(R.string.contact),
+                    modifier = Modifier.padding(LocalSpacing.current.spaceMediumSmall),
+                    color = textColor,
+                    fontFamily = font
+                )
+            }, onClick = {
+                clickEvent(MainTopBarMainMenuEvent.OnContactClick)
+            })
         }
     }
 }
@@ -123,6 +143,8 @@ private fun MainTopBarMainMenuPreview() {
             is MainTopBarMainMenuEvent.OnToggleNightModeClick -> Log.d(
                 tag, "clicked night mode ${it.darkMode}"
             );
+            MainTopBarMainMenuEvent.OnContactClick -> Log.d(tag, "contact")
+            MainTopBarMainMenuEvent.OnPrivacyPolicyClick -> Log.d(tag, "privacy policy")
         }
     }
 }

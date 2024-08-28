@@ -162,6 +162,11 @@ fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
                         is MainTopBarMainMenuEvent.OnToggleNightModeClick -> showNotAvailableYetToast(
                             context
                         )
+
+                        MainTopBarMainMenuEvent.OnContactClick -> sendEmail(context)
+                        MainTopBarMainMenuEvent.OnPrivacyPolicyClick -> openPrivacyPolicy(
+                            context
+                        )
                     }
                 }
             }
@@ -175,4 +180,26 @@ fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
 
         }
     })
+}
+
+private fun openPrivacyPolicy(context: Context) {
+    val url = "https://anddev404.github.io/AimTrainer/privacy_policy/Privacy_Policy.htm"
+
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    context.startActivity(intent)
+}
+
+private fun sendEmail(context: Context) {
+    val emailIntent = Intent(Intent.ACTION_SEND)
+
+    emailIntent.type = "text/plain"
+    emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("anddev404@gmail.com"))
+    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Habbits")
+    emailIntent.putExtra(Intent.EXTRA_TEXT, "")
+
+    context.startActivity(Intent.createChooser(emailIntent, "Send mail..."))
+}
+
+private fun showNotAvailableYetToast(context: Context) {
+    Toast.makeText(context, "Not available yet!", Toast.LENGTH_SHORT).show();
 }

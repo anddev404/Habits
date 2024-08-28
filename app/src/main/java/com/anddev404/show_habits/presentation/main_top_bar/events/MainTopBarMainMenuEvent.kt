@@ -6,5 +6,6 @@ sealed class MainTopBarMainMenuEvent {
     data object OnSupportClick : MainTopBarMainMenuEvent()
     data object OnAboutClick : MainTopBarMainMenuEvent()
     data object OnCloseClick : MainTopBarMainMenuEvent()
-
+    data object OnPrivacyPolicyClick : MainTopBarMainMenuEvent()
+    data object OnContactClick : MainTopBarMainMenuEvent()
 }
