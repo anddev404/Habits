@@ -147,22 +147,20 @@ fun CreateHabitScreen(
                 }
                 Spacer(modifier = Modifier.height(LocalSpacing.current.spaceMedium))
 
-                OutlinedTextField(modifier = Modifier.fillMaxWidth(),
-                    value = stringResource(id = R.string.turned_off),
-                    enabled = false,
-                    onValueChange = {},
-                    label = { Text(text = stringResource(id = R.string.reminder)) },
-                    trailingIcon = {
-                        Icon(imageVector = Icons.Default.ArrowDropDown, "")
-                    })
-                Spacer(modifier = Modifier.height(LocalSpacing.current.spaceMedium))
-
-                OutlinedTextField(modifier = Modifier.fillMaxWidth(),
-                    value = " ",
-                    enabled = false,
-                    onValueChange = {},
-                    label = { Text(text = stringResource(id = R.string.notes)) })
-                Spacer(modifier = Modifier.height(LocalSpacing.current.spaceMedium))
+//                OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+//                    value = stringResource(id = R.string.turned_off),
+//                    onValueChange = {},
+//                    label = { Text(text = stringResource(id = R.string.reminder)) },
+//                    trailingIcon = {
+//                        Icon(imageVector = Icons.Default.ArrowDropDown, "")
+//                    })
+//                Spacer(modifier = Modifier.height(LocalSpacing.current.spaceMedium))
+//
+//                OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+//                    value = " ",
+//                    onValueChange = {},
+//                    label = { Text(text = stringResource(id = R.string.notes)) })
+//                Spacer(modifier = Modifier.height(LocalSpacing.current.spaceMedium))
             }
         }
     }
