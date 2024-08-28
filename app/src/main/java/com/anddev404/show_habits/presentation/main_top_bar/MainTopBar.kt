@@ -183,7 +183,7 @@ fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
 }
 
 private fun openPrivacyPolicy(context: Context) {
-    val url = "https://anddev404.github.io/AimTrainer/privacy_policy/Privacy_Policy.htm"
+    val url = "https://anddev404.github.io/Habits/privacy_policy/Privacy_Policy.htm"
 
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     context.startActivity(intent)
