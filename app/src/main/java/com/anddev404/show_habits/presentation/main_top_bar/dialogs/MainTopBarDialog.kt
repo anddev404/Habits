@@ -1,6 +1,7 @@
 package com.anddev404.show_habits.presentation.main_top_bar.dialogs
 
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -20,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -44,6 +46,7 @@ fun MainTopBarDialog(
     onDismiss: () -> Unit = {},
     onEvent: (MainTopBarDialogEvent) -> Unit = {}
 ) {
+    val context = LocalContext.current
 
     Row {
         Dialog(onDismissRequest = { onDismiss() }) {
@@ -82,7 +85,12 @@ fun MainTopBarDialog(
                 Card(
                     modifier = Modifier
                         .padding(LocalSpacing.current.spaceMediumSmall)
-                        .clickable { onEvent(MainTopBarDialogEvent.OnAddHabitMeasurableClick) }
+                        // .clickable { onEvent(MainTopBarDialogEvent.OnAddHabitMeasurableClick) }
+                        .clickable {
+                            Toast
+                                .makeText(context, "Not available yet!", Toast.LENGTH_LONG)
+                                .show();
+                        }
                         .then(modifier)
                         .fillMaxWidth(),
                     colors = cardColors,
