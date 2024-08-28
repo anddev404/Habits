@@ -56,7 +56,7 @@ fun CreateHabitScreen(
 
     Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
         CreateHabitTopBar(onBackClick = { onBackClick() }) {
-            viewModel.insertHabit() {
+            viewModel.insertHabit {
                 onBackClick()
             }
         }
@@ -78,7 +78,7 @@ fun CreateHabitScreen(
                 .padding()
                 .padding(LocalSpacing.current.spaceSmall)
         ) {
-            Column() {
+            Column {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -92,8 +92,7 @@ fun CreateHabitScreen(
                         {
                             viewModel.updateHabitState(
                                 habitState.copy(
-                                    name = it,
-                                    isValidName = true
+                                    name = it, isValidName = true
                                 )
                             )
                         },
@@ -107,8 +106,7 @@ fun CreateHabitScreen(
                     Box(
                         modifier = Modifier.size(64.dp)
                     ) {
-                        OutlinedTextField(
-                            modifier = Modifier.fillMaxSize(),
+                        OutlinedTextField(modifier = Modifier.fillMaxSize(),
                             value = " ",
                             onValueChange = {
 
@@ -124,8 +122,7 @@ fun CreateHabitScreen(
                             if (it == 0) return@ColorPaletteDialog
                             viewModel.updateHabitState(habitState.copy(color = it))
                         }
-                        OutlinedTextField(
-                            modifier = Modifier.fillMaxSize(),
+                        OutlinedTextField(modifier = Modifier.fillMaxSize(),
                             value = " ",
                             onValueChange = {},
                             label = { Text(text = stringResource(id = R.string.color)) },
@@ -148,7 +145,7 @@ fun CreateHabitScreen(
                     MainTopBarDialogEvent.OnAddHabitMeasurableClick -> CreateHabitNavigation(Screen.CreateHabitMeasurableContent.route)
                     MainTopBarDialogEvent.OnAddHabitYesOrNoClick -> CreateHabitNavigation(Screen.CreateHabitYesOrNoContent.route)
                 }
-                Spacer(modifier = Modifier.width(LocalSpacing.current.spaceSmall))
+                Spacer(modifier = Modifier.height(LocalSpacing.current.spaceMedium))
 
                 OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                     value = stringResource(id = R.string.turned_off),
@@ -158,14 +155,14 @@ fun CreateHabitScreen(
                     trailingIcon = {
                         Icon(imageVector = Icons.Default.ArrowDropDown, "")
                     })
-                Spacer(modifier = Modifier.width(LocalSpacing.current.spaceSmall))
+                Spacer(modifier = Modifier.height(LocalSpacing.current.spaceMedium))
 
                 OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                     value = " ",
                     enabled = false,
                     onValueChange = {},
                     label = { Text(text = stringResource(id = R.string.notes)) })
-                Spacer(modifier = Modifier.width(LocalSpacing.current.spaceSmall))
+                Spacer(modifier = Modifier.height(LocalSpacing.current.spaceMedium))
             }
         }
     }
