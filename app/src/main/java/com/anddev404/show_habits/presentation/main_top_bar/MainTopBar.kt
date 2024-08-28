@@ -84,12 +84,12 @@ fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
             if (expandedSortMenu) {
                 MainTopBarSortMenu {
                     when (it) {
-                        MainTopBarSortMenuEvent.OnByColorClick -> TODO()
-                        MainTopBarSortMenuEvent.OnByNameClick -> TODO()
-                        MainTopBarSortMenuEvent.OnByResultClick -> TODO()
-                        MainTopBarSortMenuEvent.OnByStatusClick -> TODO()
+                        MainTopBarSortMenuEvent.OnByColorClick -> {}
+                        MainTopBarSortMenuEvent.OnByNameClick -> {}
+                        MainTopBarSortMenuEvent.OnByResultClick -> {}
+                        MainTopBarSortMenuEvent.OnByStatusClick -> {}
                         MainTopBarSortMenuEvent.OnDismissClick -> expandedSortMenu = false
-                        MainTopBarSortMenuEvent.OnManuallyClick -> TODO()
+                        MainTopBarSortMenuEvent.OnManuallyClick -> {}
                     }
                 }
             }
@@ -105,8 +105,8 @@ fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
 
                         }
 
-                        is MainTopBarFilterMenuEvent.OnToggleHideArchived -> TODO()
-                        is MainTopBarFilterMenuEvent.OnToggleHideCompleted -> TODO()
+                        is MainTopBarFilterMenuEvent.OnToggleHideArchived -> {}
+                        is MainTopBarFilterMenuEvent.OnToggleHideCompleted -> {}
                     }
                 }
             }
@@ -123,11 +123,11 @@ fun MainTopBar(onEvent: (MainTopBarEvents) -> Unit = {}) {
             if (expandedMainMenu) {
                 MainTopBarMainMenu {
                     when (it) {
-                        MainTopBarMainMenuEvent.OnAboutClick -> TODO()
-                        MainTopBarMainMenuEvent.OnSettingsClick -> TODO()
-                        MainTopBarMainMenuEvent.OnSupportClick -> TODO()
+                        MainTopBarMainMenuEvent.OnAboutClick -> {}
+                        MainTopBarMainMenuEvent.OnSettingsClick -> {}
+                        MainTopBarMainMenuEvent.OnSupportClick -> {}
                         MainTopBarMainMenuEvent.OnCloseClick -> expandedMainMenu = false
-                        is MainTopBarMainMenuEvent.OnToggleNightModeClick -> TODO()
+                        is MainTopBarMainMenuEvent.OnToggleNightModeClick -> {}
                     }
                 }
             }

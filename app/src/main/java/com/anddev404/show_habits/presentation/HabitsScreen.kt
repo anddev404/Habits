@@ -48,7 +48,7 @@ fun HabitsScreen(navController: NavController, viewModel: HabitsViewModel = hilt
                 is HabitsViewRowEvent.OnItemClick -> {
 
                     when (event.item) {
-                        is HabitsViewItemState.Value -> TODO()
+                        is HabitsViewItemState.Value -> {}
 
                         is HabitsViewItemState.YesOrNo -> {
                             viewModel.updateItem(event.item.copy(isChecked = !event.item.isChecked))
@@ -56,8 +56,8 @@ fun HabitsScreen(navController: NavController, viewModel: HabitsViewModel = hilt
                     }
                 }
 
-                is HabitsViewRowEvent.OnRowClick -> TODO()
-                is HabitsViewRowEvent.OnRowLongClick -> TODO()
+                is HabitsViewRowEvent.OnRowClick -> {}
+                is HabitsViewRowEvent.OnRowLongClick -> {}
             }
         }
     }
